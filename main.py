@@ -28,6 +28,7 @@ color_notes = {
 }
 
 # Initialize game sequence
+
 sequence = []
 user_sequence = []
 game_started = False
@@ -94,25 +95,47 @@ num = 0
 def CheckUserSequence():
     global sequence, user_sequence, game_started, game_over
     if user_sequence == sequence:
+<<<<<<< HEAD
         print(f"Correct!")
         AddToSequence()
     else:
         print("Incorrect. Game Over!")
         game_over = True
+=======
+        
+        print(f"Correct! Sequence is now ")
+        AddToSequence()
+    else:
+        print("Incorrect. Game Over!")
+>>>>>>> f361ed6906bf51e462d9f6d2eb4e8003cf7f4522
         red_led.on()
         green_led.on()
         blue_led.on()
         yellow_led.on()
+<<<<<<< HEAD
         PlayNote("E3", 0.5) 
         sleep(0.5)
         Stop()
         sleep(0.2)
+=======
+        PlayNote("E3", 0.5)
+        sleep(.5)
+        Stop()
+        sleep(0.2)
+        
+>>>>>>> f361ed6906bf51e462d9f6d2eb4e8003cf7f4522
         red_led.on()
         green_led.on()
         blue_led.on()
         yellow_led.on()
+<<<<<<< HEAD
         PlayNote("E3", 0.5) 
         sleep(0.5)
+=======
+        PlayNote("E3", 0.5)
+        sleep(.5)
+        
+>>>>>>> f361ed6906bf51e462d9f6d2eb4e8003cf7f4522
         Stop()
         game_started = False
 
