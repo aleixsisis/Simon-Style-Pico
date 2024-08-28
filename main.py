@@ -20,6 +20,7 @@ LEDS = [green_led, red_led, blue_led, yellow_led]
 BUTTONS = [green_button, red_button, blue_button, yellow_button]
 
 # Initialize game sequence
+
 sequence = []
 user_sequence = []
 game_started = False
@@ -86,10 +87,27 @@ def GetUserInput():
 def CheckUserSequence():
     global sequence, user_sequence, game_started
     if user_sequence == sequence:
-        print("Correct! Adding to the sequence.")
+        
+        print(f"Correct! Sequence is now ")
         AddToSequence()
     else:
         print("Incorrect. Game Over!")
+        red_led.on()
+        green_led.on()
+        blue_led.on()
+        yellow_led.on()
+        PlayNote("E3", 0.5)
+        sleep(.5)
+        Stop()
+        sleep(0.2)
+        
+        red_led.on()
+        green_led.on()
+        blue_led.on()
+        yellow_led.on()
+        PlayNote("E3", 0.5)
+        sleep(.5)
+        
         Stop()
         game_started = False
 
