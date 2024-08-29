@@ -20,8 +20,8 @@ class SimonGame:
     LEDS = [green_led, red_led, blue_led, yellow_led]
     BUTTONS = [green_button, red_button, blue_button, yellow_button]
 
-    # Define pitches for each color
-    color_notes = {
+    # Define pitches for each colour
+    colour_notes = {
         green_led: "C5",  
         red_led: "D4",    
         blue_led: "E3",   
@@ -36,12 +36,12 @@ class SimonGame:
     game_over = False
 
     # PIEZO
+    
     buzzer = PWM(Pin(11))
 
     def PlayNote(self, note, duration):
         self.buzzer.freq(notes[note])
         self.buzzer.duty_u16(1000)
-        print(note)
         sleep(duration)
         self.Stop()  
 
@@ -69,7 +69,7 @@ class SimonGame:
         self.Stop()
         for led in self.sequence:
             led.on()
-            self.PlayNote(self.color_notes[led], 0.4)  
+            self.PlayNote(self.colour_notes[led], 0.4)  
             sleep(0.4)
             self.Stop()  
             sleep(0.2)
@@ -82,7 +82,7 @@ class SimonGame:
                 if button.value() == True:
                     LED = self.LEDS[i]
                     LED.on()
-                    self.PlayNote(self.color_notes[LED], 0.4)
+                    self.PlayNote(self.colour_notes[LED], 0.4)
                     self.user_sequence.append(LED)
                     sleep(0.4)
                     self.Stop()
@@ -115,7 +115,7 @@ class SimonGame:
             self.Stop()
             self.game_started = False
 
-    def BUTTONTEST(self):
+    def PLAYGAME(self):
         while True:
             if self.start_button.value() == True:
                 if not self.game_started or self.game_over:
@@ -125,5 +125,5 @@ class SimonGame:
             sleep(0.1)  
 
 game = SimonGame()
-game.BUTTONTEST()
+game.PLAYGAME()
 
